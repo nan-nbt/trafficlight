@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Section;
+use DB;
 
 class SectionController extends Controller
 {
@@ -30,8 +31,7 @@ class SectionController extends Controller
         $section = new Section;
 
         return view('components/basic-data/section/list', [
-            // 'data' => $section->all()
-            'data' => $section->setConnection($this->database)->setTable($this->schema.'.tl_sec')->all()
+            'data' => $section->setConnection($this->database)->setTable($this->schema.'.tl_sec')->get()
         ]);
     }
 
