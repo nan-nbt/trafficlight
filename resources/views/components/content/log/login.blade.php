@@ -33,7 +33,7 @@
             <div class="card-body">
                 <div class="tab-content" id="custom-tabs-four-tabContent">
                 <div class="tab-pane fade show active" id="custom-tabs-four-home" role="tabpanel" aria-labelledby="custom-tabs-four-home-tab">
-                    <form action="{{ route('log.directlogin') }}" method="POST">
+                    <form action="{{ route('log.directlogin') }}" method="post">
                         @csrf
                         <div class="input-group mb-3">
                             <select class="form-control select2bs4" id="guest_fact_no" name="guest_fact_no" required>
@@ -59,26 +59,27 @@
                 </div>
                 <div class="tab-pane fade" id="custom-tabs-four-profile" role="tabpanel" aria-labelledby="custom-tabs-four-profile-tab">
                     <p class="login-box-msg">Sign in to start your session!</p>
-                    <form action="{{ route('log.login') }}" method="POST">
-                    <div class="input-group mb-3">
-                        <select class="form-control select2bs4"  id="fact_no" name="fact_no" required>
-                            <option value="" selected disabled>-- Factory --</option>
-                            <option value="0228">PCI adidas</option>
-                            <option value="B0CV">PGD adidas</option>
-                            <option value="B0EM">PGS adidas</option>
-                        </select>
-                        <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-building"></span>
+                    <form action="{{ route('log.login') }}" method="post">
+                        @csrf
+                        <div class="input-group mb-3">
+                            <select class="form-control select2bs4"  id="user_fact_no" name="user_fact_no" required>
+                                <option value="" selected disabled>-- Factory --</option>
+                                <option value="0228">PCI adidas</option>
+                                <option value="B0CV">PGD adidas</option>
+                                <option value="B0EM">PGS adidas</option>
+                            </select>
+                            <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-building"></span>
+                            </div>
+                            </div>
                         </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary btn-block float-right">Login</button>
+                            </div>
+                            <!-- /.col -->
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                        <button type="submit" class="btn btn-primary btn-block float-right">Login</button>
-                        </div>
-                        <!-- /.col -->
-                    </div>
                     </form>
                     <!-- /.social-auth-links -->
                 </div>

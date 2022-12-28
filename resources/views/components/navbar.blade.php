@@ -21,7 +21,7 @@
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <div class="dropdown-divider"></div>
-          <a href="{{ url('users/log/logout') }}" class="dropdown-item">
+          <a href="{{ route('log.logout') }}" class="dropdown-item">
             <i class="fas fa-sign-out-alt mr-2"></i> Logout
           </a>
           <!-- <div class="dropdown-divider"></div>

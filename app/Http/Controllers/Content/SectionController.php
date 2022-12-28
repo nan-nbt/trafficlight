@@ -47,7 +47,7 @@ class SectionController extends Controller
 
         $section = new Section;
 
-        return view('dashboard', [
+        return view('welcome', [
             'data' => $section->setConnection($this->database)->setTable($this->schema.'.tl_sec')->get()
         ]);
     }

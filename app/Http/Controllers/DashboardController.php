@@ -15,9 +15,6 @@ class DashboardController extends Controller
 
     public function __construct()
     {
-        session()->put('factory', '0228');
-        session()->put('level', 'S');
-
         if (session()->has('factory')) {
             if (session()->get('factory') == '0228') {
                 session()->put('database', 'db_pci');
@@ -38,13 +35,13 @@ class DashboardController extends Controller
         }
 
         $this->level = session()->get('level');
-
     }
 
     public function index()
     {
-        if ($this->database == null && $this->schema == null) {
-            abort(403);
+        if ($this->database == null && $this->schema == null || session()->get('factory') == null) {
+            // abort(403);
+            return redirect()->route('log');
         }
 
         $section = new Section;

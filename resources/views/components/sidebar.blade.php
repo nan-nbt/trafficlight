@@ -1,5 +1,5 @@
 <!-- Session login check -->
-@if (session()->get('factory') == null && session()->get('username') == null) redirect()->route('log') @endif
+@if (session()->get('factory') == null && session()->get('username') == null) return redirect()->route('log') @endif
 
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -19,13 +19,13 @@
         @if (session()->get('level') == 'S')
         <li class="nav-header">BASIC DATA SETTING</li>
         <li class="nav-item
-                    @if (url('') == url('users/Section') || url('') == url('users/Process'))
+                    @if (url('') == url('trafficlight/content/section') || url('') == url('trafficlight/content/process'))
                       {{ 'menu-open' }}
                     @endif
                     ">
           <a  href="#"
               class="nav-link
-                    @if (url('') == url('users/Section') || url('') == url('users/Process'))
+                    @if (url('') == url('trafficlight/content/section') || url('') == url('trafficlight/content/process'))
                         {{ 'active' }}
                     @endif
                     ">
@@ -37,9 +37,9 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a  href="{{ url('users/Section') }}"
+              <a  href="{{ route('section') }}"
                   class="nav-link
-                        @if (url('') == url('users/Section'))
+                        @if (url('') == url('trafficlight/content/section'))
                             {{ 'active' }}
                         @endif
                         ">
@@ -48,9 +48,9 @@
               </a>
             </li>
             <li class="nav-item">
-              <a  href="{{ url('users/Process') }}"
+              <a  href="{{ url('trafficlight/content/process') }}"
                   class="nav-link
-                        @if (url('') == url('users/Process'))
+                        @if (url('') == url('trafficlight/content/process'))
                             {{ 'active' }}
                         @endif
                         ">
@@ -59,9 +59,9 @@
               </a>
             </li>
             <li class="nav-item">
-              <a  href="{{ url('users/Defect') }}"
+              <a  href="{{ url('trafficlight/content/defect') }}"
                   class="nav-link
-                        @if (url('') == url('users/Defect'))
+                        @if (url('') == url('trafficlight/content/defect'))
                             {{ 'active' }}
                         @endif
                         ">
@@ -70,9 +70,9 @@
               </a>
             </li>
             <li class="nav-item">
-              <a  href="{{ url('users/Suggest') }}"
+              <a  href="{{ url('trafficlight/content/suggest') }}"
                   class="nav-link
-                        @if (url('') == url('users/Suggest'))
+                        @if (url('') == url('trafficlight/content/suggest'))
                             {{ 'active' }}
                         @endif
                         ">
@@ -86,9 +86,9 @@
         <li class="nav-header">TRAFFIC LIGHT PROCESS</li>
         @if (session()->get('level') == 'S' | session()->get('level') == 'U')
         <li class="nav-item">
-          <a  href="{{ url('users/Collection') }}"
+          <a  href="{{ url('trafficlight/content/collection') }}"
               class="nav-link
-                    @if (url('') == url('users/Collection'))
+                    @if (url('') == url('trafficlight/content/collection'))
                         {{ 'active' }}
                     @endif
                     ">
@@ -98,10 +98,10 @@
         </li>
         @endif
         <li class="nav-item">
-          <a  href="{{ url('users/Collection/visual') }}"
+          <a  href="{{ url('trafficlight/content/collection/visual') }}"
               class="nav-link
-              @if (url('') == url('users/Collection/visual') ||
-                    url('') == url('users/Collection/detail'))
+              @if (url('') == url('trafficlight/content/collection/visual') ||
+                    url('') == url('trafficlight/content/collection/detail'))
                   {{ 'active' }}
               @endif
               ">
@@ -111,9 +111,9 @@
         </li>
         <li class="nav-header">REPORT</li>
         <li class="nav-item">
-          <a  href="{{ url('users/Collection/report') }}"
+          <a  href="{{ url('trafficlight/content/collection/report') }}"
               class="nav-link
-                    @if (url('') == url('users/Collection/report'))
+                    @if (url('') == url('trafficlight/content/collection/report'))
                         {{ 'active' }}
                     @endif
                     ">
@@ -122,9 +122,9 @@
           </a>
         </li>
         <li class="nav-item">
-          <a  href="{{ url('users/Collection/hourly') }}"
+          <a  href="{{ url('trafficlight/content/collection/hourly') }}"
               class="nav-link
-                    @if (url('') == url('users/Collection/hourly'))
+                    @if (url('') == url('trafficlight/content/collection/hourly'))
                         {{ 'active' }}
                     @endif
                     ">
